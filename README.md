@@ -1,5 +1,5 @@
 # StudyWPF
-C# WPF 학습리포지트리
+C# WPF 학습리포지토리
 
 ## Day 1일차
 - WPF 개요
