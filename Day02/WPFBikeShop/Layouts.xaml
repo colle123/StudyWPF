@@ -1,0 +1,55 @@
+﻿<Page x:Class="WPFBikeShop.Layouts"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFBikeShop"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Layouts">
+<!--Grid : 레이아웃 크기를 조정할 수 있는 최상의 다기능 컨트롤(복잡한 대신 정확하게 원하는 Layout을 만들 수 있음)
+            컨트롤은 자신이 속한 전체 칸을 채움, 각 칸에 속한 컨트롤이 각 칸의 상단에 표시
+            Width / Height규칙 : 고정숫자 : 픽셀의 수 할당 / Auto : 컨텐츠에 대한 크기 적용 / 별 : 비율로 적용-->
+    <Grid>
+        <!--캔버스에선 안에 있는 항목이 범위를 벗어나도 그대로 출력되지만 Grid 사이즈를 벗어나면 잘려서 출력
+            또 Canvas의 크기에 따라서 항목의 크기가 그대로 유지됨. 위치를 전부 지정해줘야함-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Content="A"/>
+        <!--Grid의 한 영역에 두 가지를 넣어버리면 나중에 넣은게 덮어버림-->
+        <!--Grid.ColumnSpan(or RowSpan) = x / x칸씩 차지함 -->
+        <Button Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="B"/>
+        
+        <!--Grid안에 꼭 버튼 2개를 넣어야한다면 StackPanel을 활용-->
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+            <Button Content="C" Width="200"/>
+            <Button Content="D" Width="200"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="2" Grid.Column="1">
+            <Label Content="Element1"/>
+            <Label Content="Element2"/>
+            <GroupBox Header="Element3">
+                세번째 엘리먼트
+            </GroupBox>
+        </ListBox>
+        
+        <ComboBox Grid.Row="3" Grid.Column="1">
+            <Label Content="Element1"/>
+            <Label Content="Element2"/>
+            <GroupBox Header="Element3">
+                세번째 엘리먼트
+            </GroupBox>
+        </ComboBox>
+    </Grid>
+</Page>

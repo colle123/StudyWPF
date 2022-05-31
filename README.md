@@ -8,3 +8,13 @@ C# WPF 학습리포지토리
 - WPF Basic
   - 기본 프로젝트
   - 윈폼과 비교
+
+## Day 2일차
+- Layout(Panel, Grid)
+- Page Navigation
+- Data Binding
+
+## Day 3일차
+- Design
+- Resource
+- Naver Movie App 만들기

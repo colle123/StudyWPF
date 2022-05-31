@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Media;
 
 namespace WPFBikeShop
 {
@@ -16,7 +18,16 @@ namespace WPFBikeShop
 
         private void InitClass()
         {
+            Human driver = new Human
+            {
+                FirstName = "Nick",
+                HasDrivingLicense = true
+            };
+        
             Car car = new Car();
+            car.Speed = 100;
+            car.Color = Colors.Tomato;
+            car.Driver = driver;
         }
     }
 }

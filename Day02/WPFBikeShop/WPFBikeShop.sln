@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFBikeShop", "WPFBikeShop.csproj", "{A7C4F38D-A4DA-4366-AB5C-908E0CCD3466}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7C4F38D-A4DA-4366-AB5C-908E0CCD3466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C4F38D-A4DA-4366-AB5C-908E0CCD3466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C4F38D-A4DA-4366-AB5C-908E0CCD3466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C4F38D-A4DA-4366-AB5C-908E0CCD3466}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5B4346C-4C46-49C6-8571-774329FA8459}
+	EndGlobalSection
+EndGlobal
