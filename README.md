@@ -13,4 +13,4 @@ C# WPF 학습리포지토리
 - WPF 기능
 - Notifier(Observer 개념)
 - WinForm과의 차이
-- 
+- Data Binding 개념
