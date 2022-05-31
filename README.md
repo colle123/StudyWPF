@@ -8,3 +8,9 @@ C# WPF 학습리포지토리
 - WPF Basic
   - 기본 프로젝트
   - 윈폼과 비교
+
+## Day 2일차
+- WPF 기능
+- Notifier(Observer 개념)
+- WinForm과의 차이
+- 
