@@ -4,6 +4,30 @@
              xmlns:local="clr-namespace:WPFBikeShop"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--App.xaml에 Papg Resource에 있던 내용들을 붙여 넣으면 App 전체에서 이걸 사용 할 수 있음.-->
+        <Style x:Key="niceButton" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <!--우리가 PowerPoint 같은 곳에서 하는 그라데이션을 이렇게 넣을 수 있음-->
+                    <LinearGradientBrush>
+                        <GradientStop Color="Green"/>
+                        <GradientStop Color="Coral" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle Fill="{TemplateBinding Background}" Stroke="Blue" StrokeThickness="2"
+                                   RadiusX="10" RadiusY="10"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

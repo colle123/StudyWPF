@@ -36,7 +36,7 @@ namespace WPFBikeShop
         {
             //Uri는 우리가 인터넷에서 알고있는 URL의 상위속성
             NavigationService.Navigate(
-                new Uri("/Bindings.xaml", UriKind.RelativeOrAbsolute)
+                new Uri("/TemplatePage.xaml", UriKind.RelativeOrAbsolute)
                 );
         }
 

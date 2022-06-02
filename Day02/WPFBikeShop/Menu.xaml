@@ -16,8 +16,9 @@
 <!--Grid.Row와 Grid.Column을 안쓰면 0, 0으로 고정됨. 0, 0에 넣을땐 무시해도 좋지만 써주는게 좋음.-->
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <Button x:Name="btnProducts" Width="200" Margin="10" 
-                    Content="Products" FontSize="25" Click="btnProducts_Click"/>
+            <!--기본적인 Style은 부모의 Style을 따라가지만 Button에 따라 우리가 조정 해줄 수 있음.-->
+            <Button x:Name="btnProducts" Width="200" Height="100" Margin="10" Style="{StaticResource niceButton}" 
+                    Background="AntiqueWhite" Content="Products" FontSize="25" Click="btnProducts_Click"/>
             <Button x:Name="btnLiveSupport" Width="200" Margin="10" 
                     Content="Live Support" FontSize="25" Click="btnLiveSupport_Click"/>
             <Button x:Name="btnEmailSupport" Width="200" Margin="10" 
