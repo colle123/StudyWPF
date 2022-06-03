@@ -17,3 +17,10 @@
 
 ![YoutubePlay](https://github.com/colle123/StudyWPF/blob/main/Capture/Youtube_Trailer.png)
 ##### 검색영화 예고편보기 실행화면
+<br/>
+
+## Naver 뉴스검색
+- WPF(.NET FrameWork 4.7.2 / C#)
+  - MahApps.Metro Metro UI / Morden UI
+  - NewtonSoft.Json
+  - Naver OpenAPI
