@@ -100,7 +100,7 @@
             </Button>
 
             <Button x:Name="btnDelWatchList" Content="즐겨찾기 삭제" Margin="10"
-                    Style="{StaticResource MahApps.Styles.Button.MetroSquare.Accent}"
+                    Style="{StaticResource MahApps.Styles.Button.MetroSquare.Accent}" 
                     Width="150" Height="60" FontSize="12" Click="btnDelWatchList_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
