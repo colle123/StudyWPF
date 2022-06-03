@@ -24,13 +24,14 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="187*"/>
+            <ColumnDefinition Width="465*"/>
+            <ColumnDefinition Width="326*"/>
             <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>           
-        
+        </Grid.ColumnDefinitions>
+
         <!-- 검색창 영역 -->
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
             <!--검색을 실시할때 워터마크가 검색 위로 올라가는 기능-->
             <TextBox x:Name="txtSearchName" Width="500" Margin="5,20" FontSize="14"
                      mah:TextBoxHelper.Watermark="검색할 영화명 입력"                    
@@ -42,19 +43,20 @@
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="10,0"/><!--버튼이 가지고 있는 Content가 그대로 Binding 됨-->
+                            <TextBlock Text="{Binding}" Margin="10,0"/>
+                            <!--버튼이 가지고 있는 Content가 그대로 Binding 됨-->
                             <iconPacks:PackIconForkAwesome Kind="Search" />
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
         </StackPanel>
-        
+
         <!-- 검색결과 그리드 영역 -->
         <DataGrid x:Name="grdResult" Grid.Row="2" Grid.Column="1" Margin="10"
                   Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
                   IsReadOnly="True" ItemsSource="{Binding}" AutoGenerateColumns="False"
-                  SelectedCellsChanged="grdResult_SelectedCellsChanged">
+                  SelectedCellsChanged="grdResult_SelectedCellsChanged" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Title}" Header="한글제목" FontWeight="Bold"/>
                 <DataGridTextColumn Binding="{Binding SubTitle}" Header="영어제목" />
@@ -64,27 +66,29 @@
                 <DataGridTextColumn Binding="{Binding UserRating}" Header="네티즌평점" />
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <!-- 포스터 영역 -->
-        <Image x:Name="imgPoster" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2"
+        <Image x:Name="imgPoster" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2"
                Source="/Resource/No_Picture.jpg" Margin="10, 60" />
-        
+
         <!-- 버튼 영역 -->
-        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
             <Button x:Name="btnAddWatchList" Content="즐겨찾기 추가" Margin="10"
-                    Width="150" FontSize="12" Click="btnAddWatchList_Click">
+                    Style="{StaticResource MahApps.Styles.Button.MetroSquare.Accent}"
+                    Width="150" Height ="60" FontSize="12" Click="btnAddWatchList_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding}" Margin="5, 0" />
-                        <iconPacks:PackIconForkAwesome Kind="Plus"/>
+                            <TextBlock Text="{Binding}" Margin="5, 0" />
+                            <iconPacks:PackIconForkAwesome Kind="Plus"/>
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            
+
             <Button x:Name="btnViewWatchList" Content="즐겨찾기 보기" Margin="10"
-                    Width="150" FontSize="12" Click="btnViewWatchList_Click">
+                    Style="{StaticResource MahApps.Styles.Button.Dialogs.AccentHighlight}"
+                    Width="150" Height="60" FontSize="12" Click="btnViewWatchList_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -94,9 +98,10 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            
+
             <Button x:Name="btnDelWatchList" Content="즐겨찾기 삭제" Margin="10"
-                    Width="150" FontSize="12" Click="btnDelWatchList_Click">
+                    Style="{StaticResource MahApps.Styles.Button.MetroSquare.Accent}"
+                    Width="150" Height="60" FontSize="12" Click="btnDelWatchList_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -108,7 +113,8 @@
             </Button>
 
             <Button x:Name="btnWatchTrailer" Content="예고편 보기" Margin="10"
-                    Width="150" FontSize="12" Click="btnWatchTrailer_Click">
+                    Style="{StaticResource MahApps.Styles.Button.Dialogs.AccentHighlight}"
+                    Width="150" Height="60" FontSize="12" Click="btnWatchTrailer_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -120,7 +126,8 @@
             </Button>
 
             <Button x:Name="btnNaverMoive" Content="예고편 보기" Margin="10"
-                    Width="150" FontSize="12" Click="btnNaverMoive_Click">
+                    Style="{StaticResource MahApps.Styles.Button.MetroSquare.Accent}"
+                    Width="150" Height="60" FontSize="12" Click="btnNaverMoive_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -131,12 +138,13 @@
                 </Button.ContentTemplate>
             </Button>
         </StackPanel>
-        
+
         <!-- 상태바 영역 -->
-        <StatusBar Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4">
+        <StatusBar Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5">
             <StatusBarItem Content="Naver &amp; Youtube OpenAPI App"/>
             <Separator Style="{StaticResource MahApps.Styles.Separator.StatusBar}"/>
             <StatusBarItem x:Name="stsResult" />
         </StatusBar>
+        <TreeView Grid.Column="4" HorizontalAlignment="Left" Height="100" Margin="318,168,-398,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </mah:MetroWindow>
