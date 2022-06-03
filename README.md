@@ -22,3 +22,6 @@ C# WPF 학습리포지토리
 ## Day 4일차
 - Naver Movie App 마무리
 - Naver New Search App
+
+## Day 5일차
+- MVVM 패턴 학습
