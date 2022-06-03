@@ -17,4 +17,4 @@ C# WPF 학습리포지토리
 ## Day 3일차
 - Design
 - Resource
-- Naver Movie App 만들기
+- Naver Movie App 만들기([클릭](https://github.com/colle123/StudyWPF/tree/main/PortFolio))
