@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace WPFMvvmApp.ViewModels
 {
-    public class RelayCommand<T> : ICommand
+    public class RelayCommand<T> : ICommand // ViewModel과 View를 Glue하기 위한 Class
     {
         private readonly Action<T> execute; // 실행처리를 위한 Generic
         private readonly Predicate<T> canExcute; // 실행여부를 판단하는 Generic
@@ -27,7 +27,9 @@ namespace WPFMvvmApp.ViewModels
 
         public bool CanExecute(object parameter) // 명령을 실행 할 수 있는지? -> CanExecute가 활성화 되야만 실행되는 프로그램을 만들게
         {
-            return canExcute?.Invoke((T)parameter) ?? true; // 입력으로 들어온 parameter을 Generic으로 바꿔서 canExcute를 실행, 실행되면 true를 반환
+            return canExcute?.Invoke((T)parameter) ?? true; // 입력으로 들어온 parameter을 Generic으로 바꿔서 canExcute를 실행,
+                                                            // canExecute가 null이 아니라 실행되면 true를 반환
+                                                            // if(canExecute != null) canExecute(this, PropertyChanged((T)parameter));
         }
 
         public void Execute(object parameter) // 명령이 있는지?

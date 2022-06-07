@@ -18,7 +18,7 @@ namespace WPFMvvmApp.Models
             get { return email; } // get => email; 과 동일
             set
             {
-                if (Commons.IsValidEmail(email))
+                if (Commons.IsValidEmail(value))
                     throw new Exception("Invalid Email");
                 else
                     email = value;
@@ -46,7 +46,7 @@ namespace WPFMvvmApp.Models
                         && DateTime.Now.Day == Date.Day;
             }
         }
-        public bool ISAdult
+        public bool IsAdult
         {
             get
             {
