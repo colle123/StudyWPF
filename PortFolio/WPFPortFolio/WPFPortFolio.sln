@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFNaverMovieFinder", "WPFNaverMovieFinder\WPFNaverMovieFinder.csproj", "{D265009D-B1C6-4D5A-AB81-C2B1255F8EFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFNaverNewsSearch", "WPFNaverNewsSearch\WPFNaverNewsSearch.csproj", "{32169821-C0D1-4D33-B44B-6DF7789AEA8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D265009D-B1C6-4D5A-AB81-C2B1255F8EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D265009D-B1C6-4D5A-AB81-C2B1255F8EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D265009D-B1C6-4D5A-AB81-C2B1255F8EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32169821-C0D1-4D33-B44B-6DF7789AEA8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32169821-C0D1-4D33-B44B-6DF7789AEA8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32169821-C0D1-4D33-B44B-6DF7789AEA8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32169821-C0D1-4D33-B44B-6DF7789AEA8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
