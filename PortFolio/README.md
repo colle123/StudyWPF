@@ -15,7 +15,7 @@
 ##### 실행화면
 <br/>
 
-![YoutubePlay](https://github.com/colle123/StudyWPF/blob/main/Capture/Youtube_Trailer.png)
+![YoutubePlay](https://github.com/colle123/StudyWPF/blob/main/Capture/YoutubeSearch.png)
 ##### 검색영화 예고편보기 실행화면
 <br/>
 
