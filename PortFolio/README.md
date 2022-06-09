@@ -11,11 +11,11 @@
   - Entity FrameWork DB Handeling
 <br/>
 
-![NaverMovieFinder](https://raw.githubusercontent.com/colle123/StudyWPF/main/Capture/Interstellar.png)
+![NaverMovieFinder](https://raw.githubusercontent.com/colle123/StudyWPF/main/Capture/LaLaLand.png)
 ##### 실행화면
 <br/>
 
-![YoutubePlay](https://github.com/colle123/StudyWPF/blob/main/Capture/YoutubeSearch.png) 
+![YoutubePlay](https://raw.githubusercontent.com/colle123/StudyWPF/main/Capture/YoutubeSearch.png)
 ##### 검색영화 예고편보기 실행화면
 <br/>
 
@@ -25,7 +25,7 @@
   - NewtonSoft.Json
   - Naver OpenAPI
 
-![NaverNewsSearch](https://github.com/colle123/StudyWPF/blob/main/Capture/NaverNewsSearch.png)
+![NaverNewsSearch]()
 <br/>
 
 ## SmartHome 모니터링앱
