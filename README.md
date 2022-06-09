@@ -29,4 +29,10 @@ C# WPF 학습리포지토리
 ## Day 6일차
 - Caliburn.Micro MVVM 학습
 - Bogus(FakeData, DummyData) 패키지 학습
+- SmartHome App 만들기(시작)
+
+## Day 7일차
 - SmartHome App 만들기
+  - MQTT Publish 프로그램
+  - MQTT Broker 프로그램
+  - MQTT Monitoring 프로그램
