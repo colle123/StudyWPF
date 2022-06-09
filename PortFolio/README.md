@@ -11,7 +11,7 @@
   - Entity FrameWork DB Handeling
 <br/>
 
-![NaverMovieFinder](https://github.com/colle123/StudyWPF/blob/main/Capture/Interstellar.png)
+![NaverMovieFinder](https://raw.githubusercontent.com/colle123/StudyWPF/main/Capture/Interstellar.png)
 ##### 실행화면
 <br/>
 
