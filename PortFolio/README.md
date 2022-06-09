@@ -36,7 +36,6 @@
   - M2Mqtt
   - NewtonSoft.Json
   - SQLServer DB
-<br/>
 
 ![SmartHomeMonitoring](https://github.com/colle123/StudyWPF/blob/main/Capture/SmartHome.JPG)
 ##### DB 모니터링 화면
