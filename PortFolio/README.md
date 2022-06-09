@@ -26,3 +26,17 @@
   - Naver OpenAPI
 
 ![NaverNewsSearch](https://github.com/colle123/StudyWPF/blob/main/Capture/NaverNewsSearch.png)
+<br/>
+
+## SmartHome 모니터링앱
+- WPF(.NET FrameWork 4.7.2 / C#)
+  - MahApps.Metro Metro UI / Modern UI
+  - Caliburn.Micro
+  - LiveChart
+  - M2Mqtt
+  - NewtonSoft.Json
+  - SQLServer DB
+<br/>
+
+![SmartHomeMonitoring](https://github.com/colle123/StudyWPF/blob/main/Capture/SmartHome.JPG)
+##### DB 모니터링 화면
