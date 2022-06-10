@@ -58,8 +58,27 @@ namespace DummyDataApp
         {
             MqttThread = new Thread(() => LoopPublish());
             MqttThread.Start();
+
+            //Thread thread2 = new Thread(() => LoopPublish2());
+            //thread2.Start();
         }
 
+        // LoopPublish 메소드와 별개로 동작하는 Task
+        //private static void LoopPublish2()
+        //{
+        //    while (true)
+        //    {
+        //        SensorInfo tempValue = sensorData.Generate();
+        //        tempValue.DevId = Guid.NewGuid().ToString(); // newdata topic DEVID 변경
+        //        CurrValue = JsonConvert.SerializeObject(tempValue, Formatting.Indented);
+        //        Client.Publish("home/device/newdata/", Encoding.Default.GetBytes(CurrValue));
+        //        Console.WriteLine($"Published newdata : { CurrValue}");
+        //        Thread.Sleep(1000);
+
+        //    }
+        //}
+
+        // Main 메소드 실행되는 부분과는 별개로 동작하는 Task
         private static void LoopPublish()
         {
             while (true)
@@ -67,9 +86,8 @@ namespace DummyDataApp
                 SensorInfo tempValue = sensorData.Generate();
                 CurrValue = JsonConvert.SerializeObject(tempValue, Formatting.Indented);
                 Client.Publish("home/device/fakedata/", Encoding.Default.GetBytes(CurrValue));
-                Console.WriteLine($"Published : { CurrValue}");
-                Thread.Sleep(1000);
-
+                Console.WriteLine($"Published fakedata : { CurrValue}");
+                Thread.Sleep(3000);
             }
         }
     }

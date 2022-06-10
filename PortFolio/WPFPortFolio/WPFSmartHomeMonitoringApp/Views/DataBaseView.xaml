@@ -92,7 +92,7 @@
             <ToggleButton x:Name="ConnectDb" Grid.Row="3" Grid.Column="1" Margin="5, 0"
                           VerticalAlignment="Center" Content="Connect" Width="100"
                           HorizontalAlignment="Left" Style="{StaticResource MahApps.Styles.ToggleButton.Flat}"
-                          IsChecked="{Binding IsConnected}" Height="35" FontSize="13" Background="SkyBlue"/>
+                          IsChecked="{Binding IsConnected}" Height="35" FontSize="13" Background="Crimson"/>
             <TextBox x:Name="DbLog" Grid.Row="4" Grid.Column="1" Margin="5"
                      ScrollViewer.VerticalScrollBarVisibility="Visible"
                      AcceptsReturn="True" TextWrapping="Wrap"
