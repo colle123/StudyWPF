@@ -31,8 +31,11 @@ C# WPF 학습리포지토리
 - Bogus(FakeData, DummyData) 패키지 학습
 - SmartHome App 만들기(시작)
 
-## Day 7일차
+## Day 7 ~ 8일차
 - SmartHome App 만들기([클릭](https://github.com/colle123/StudyWPF/tree/main/PortFolio#smarthome-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EC%95%B1))
   - MQTT Publish 프로그램
   - MQTT Broker 프로그램
   - MQTT Monitoring 프로그램
+
+## Day 9일차
+- SmartHome App 개발완료
