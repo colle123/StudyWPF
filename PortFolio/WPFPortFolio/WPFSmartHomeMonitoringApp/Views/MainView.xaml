@@ -21,7 +21,7 @@
                         <MenuItem.Icon>
                             <iconPacks:MaterialDesign Kind="AttachFile"/>
                         </MenuItem.Icon>
-                        <MenuItem Header="Start">
+                        <MenuItem x:Name="PopInfoDialog" Header="Start">
                             <MenuItem.Icon>
                                 <iconPacks:MaterialDesign Kind="PlayCircleFilled"/>
                             </MenuItem.Icon>
@@ -65,8 +65,10 @@
                         <MenuItem.Icon>
                             <iconPacks:MaterialDesign Kind="Help"/>
                         </MenuItem.Icon>
-                        <MenuItem Header="About">
-
+                        <MenuItem x:Name="PopInfoView" Header="About">
+                            <MenuItem.Icon>
+                                <iconPacks:MaterialDesign Kind="Help"/>
+                            </MenuItem.Icon>
                         </MenuItem>
                     </MenuItem>
 
@@ -75,15 +77,15 @@
 
                 <ToolBarTray>
                     <ToolBar Style="{StaticResource MahApps.Styles.ToolBar}">
-                        <Button ToolTip="start MQTT Subscriber">
+                        <Button x:Name="StartSubscribe" ToolTip="start MQTT Subscriber">
                             <iconPacks:MaterialDesign Kind="PlayCircleFilled"/>
                         </Button>
-                        <Button ToolTip="stop MQTT Subscriber">
+                        <Button ToolTip="Stop MQTT Subscriber">
                             <iconPacks:MaterialDesign Kind="PauseCircleFilled"/>
                         </Button>
                         <Separator/>
                         <!-- 구분자를 넣을 때 Separator 사용 -->
-                        <Button ToolTip="Exit">
+                        <Button x:Name="ExitToolbar" ToolTip="Exit">
                             <iconPacks:MaterialDesign Kind="ExitToApp"/>
                         </Button>
                     </ToolBar>

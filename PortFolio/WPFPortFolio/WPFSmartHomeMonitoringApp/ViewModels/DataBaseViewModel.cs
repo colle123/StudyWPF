@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 using WPFSmartHomeMonitoringApp.Helpers;
+using WPFSmartHomeMonitoringApp.Models;
 
 namespace WPFSmartHomeMonitoringApp.ViewModels
 {
@@ -156,6 +157,12 @@ namespace WPFSmartHomeMonitoringApp.ViewModels
         private void SetDataBase(string message)
         {
             var currDatas = JsonConvert.DeserializeObject<Dictionary<string, string>>(message); // Json Data는 Dictionary Type으로 되어있음.(key값과 value값)
+            var smartHomeModel = new SmartHomeModel();
+            smartHomeModel.DevId = currDatas["DevId"];
+            smartHomeModel.CurrTime = DateTime.Parse(currDatas["CurrTime"]);
+            smartHomeModel.Temp = double.Parse(currDatas["Temp"]);
+            smartHomeModel.Humid = double.Parse(currDatas["Humid"]);
+
 
             Debug.WriteLine(currDatas);
 
@@ -176,13 +183,13 @@ namespace WPFSmartHomeMonitoringApp.ViewModels
                 try
                 {
                     SqlCommand cmd = new SqlCommand(strInQuery, conn);
-                    SqlParameter paraDevId = new SqlParameter("@DevId", currDatas["DevId"]);
+                    SqlParameter paraDevId = new SqlParameter("@DevId", smartHomeModel.DevId);
                     cmd.Parameters.Add(paraDevId);
-                    SqlParameter parmCurrTime = new SqlParameter("@CurrTime", DateTime.Parse(currDatas["CurrTime"]));
+                    SqlParameter parmCurrTime = new SqlParameter("@CurrTime", smartHomeModel.CurrTime);
                     cmd.Parameters.Add(parmCurrTime);
-                    SqlParameter parmTemp = new SqlParameter("@Temp", currDatas["Temp"]);
+                    SqlParameter parmTemp = new SqlParameter("@Temp", smartHomeModel.Temp);
                     cmd.Parameters.Add(parmTemp);
-                    SqlParameter parmHumid = new SqlParameter("@Humid", currDatas["Humid"]);
+                    SqlParameter parmHumid = new SqlParameter("@Humid", smartHomeModel.Humid);
                     cmd.Parameters.Add(parmHumid);
 
                     if (cmd.ExecuteNonQuery() == 1)

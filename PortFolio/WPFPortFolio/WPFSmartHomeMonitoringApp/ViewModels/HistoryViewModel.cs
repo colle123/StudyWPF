@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
 using OxyPlot;
+using OxyPlot.Legends;
+using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -23,7 +25,7 @@ namespace WPFSmartHomeMonitoringApp.ViewModels
         //InitEndDate
         //TotalCount
         //SearchIoTData()
-        //SmartHomeModel
+        //HistoryModel
 
         private BindableCollection<DivisionModel> divisions;
         private DivisionModel selectedDivision;
@@ -32,7 +34,7 @@ namespace WPFSmartHomeMonitoringApp.ViewModels
         private string endDate;
         private string initEndDate;
         private int totalCount;
-        private PlotModel smartHomeModel; // oxyplot
+        private PlotModel historyModel; // oxyplot 220613, MSG. smartHomeModel -> historyModel로 변경
 
         public BindableCollection<DivisionModel> Divisions
         {
@@ -104,13 +106,13 @@ namespace WPFSmartHomeMonitoringApp.ViewModels
             }
         }
 
-        public PlotModel SmartHomeModel
+        public PlotModel HistoryModel
         {
-            get { return smartHomeModel; }
+            get { return historyModel; }
             set
             {
-                smartHomeModel = value;
-                NotifyOfPropertyChange(() => SmartHomeModel);
+                historyModel = value;
+                NotifyOfPropertyChange(() => HistoryModel);
             }
         }
 
@@ -158,7 +160,7 @@ namespace WPFSmartHomeMonitoringApp.ViewModels
 
             using(SqlConnection conn = new SqlConnection(Commons.CONNSTRING))
             {
-                string strQuery = @"SELECT Id, CurrTime, Temp, Humid
+                string strQuery = @"SELECT Id, DevId, CurrTime, Temp, Humid
                                       FROM tblSmartHome
                                      WHERE DevId = @DevId    
                                        AND CurrTime BETWEEN @StartDate AND @EndDate
@@ -178,17 +180,64 @@ namespace WPFSmartHomeMonitoringApp.ViewModels
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    var i = 0;
+                    int i = 0;
+                    // start of chart procee 220613 추가
+                    PlotModel tmp = new PlotModel() { Title = $"{SelectedDivision.DivisionVal} Histories" }; // 임시 플롯모델 -> 사용하기 위해서보단 다른 곳에 전달하기 위함.
+
+                    var l = new Legend // 범례, OxyPlot.Wpf > LegendsDemo 참조
+                    {
+                        LegendBorder = OxyColors.Black,
+                        LegendBackground = OxyColor.FromAColor(200, OxyColors.White),
+                        LegendPosition = LegendPosition.RightTop,
+                        LegendPlacement = LegendPlacement.Inside
+                    };
+                    tmp.Legends.Add(l);
+
+                    LineSeries seriesTemp = new LineSeries
+                    {
+                        Color = OxyColor.FromRgb(255, 100, 100),
+                        Title = "Temparature",
+                        MarkerSize = 3,
+                        MarkerType = MarkerType.Circle
+
+                    }; // 온도값을 Linechart로 담을 객체
+
+                    LineSeries seriesHumid = new LineSeries
+                    {
+                        Color = OxyColor.FromRgb(150, 150, 255),
+                        Title = "Humidity",
+                        MarkerSize = 3,
+                        MarkerType = MarkerType.Triangle
+                    };
 
                     while (reader.Read())
                     {
-                        var temp = reader["Temp"];
+
+                        var model = new SmartHomeModel();
+                        model.DevId = reader["DevId"].ToString();
+                        model.CurrTime = DateTime.Parse(reader["CurrTime"].ToString());
+                        model.Temp = Convert.ToDouble(reader["Temp"]);
+                        model.Humid = Convert.ToDouble(reader["Humid"]);
+
+                        //seriesTemp.Points.Add(new DataPoint(i, model.Temp));
+                        //seriesHumid.Points.Add(new DataPoint(i, model.Humid));
+
+                        //var temp = reader["Temp"];
                         // Temp, Humid 차트 데이터를 생성
+
+                        seriesTemp.Points.Add(new DataPoint(i, Convert.ToDouble(reader["Temp"])));
+                        seriesHumid.Points.Add(new DataPoint(i, Convert.ToDouble(reader["Humid"])));
 
                         i++;
                     }
 
                     TotalCount = i;
+
+                    tmp.Series.Add(seriesTemp);
+                    tmp.Series.Add(seriesHumid);
+
+
+                    HistoryModel = tmp;
                 }
                 catch (Exception ex)
                 {

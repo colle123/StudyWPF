@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using WPFSmartHomeMonitoringApp.Helpers;
 
 namespace WPFSmartHomeMonitoringApp.ViewModels
 {
@@ -15,6 +17,17 @@ namespace WPFSmartHomeMonitoringApp.ViewModels
             //MessageBox.Show("MVVM Start!");
             DisplayName = "SmartHome Monitoring v2.0"; // Window Title
          
+        }
+
+        protected override Task OnDeactivateAsync(bool close, CancellationToken cancellationToken)
+        {
+            if (Commons.MQTT_CLIENT.IsConnected)
+            {
+                Commons.MQTT_CLIENT.Disconnect();
+                Commons.MQTT_CLIENT = null;
+            }
+
+            return base.OnDeactivateAsync(close, cancellationToken);
         }
 
         public void LoadDataBaseView()
@@ -34,7 +47,41 @@ namespace WPFSmartHomeMonitoringApp.ViewModels
 
         public void ExitProgram()
         {
-            Environment.Exit(0);
+            Environment.Exit(0); // 프로그램 종료
+        }
+
+        public void ExitToolbar()
+        {
+            Environment.Exit(0); // 프로그램 종료
+        }
+
+        // Start 메뉴, Icon을 눌렀을 때 처리할 이벤트
+        public void PopInfoDialog()
+        {
+            TaskPopup();
+        }
+
+        public void StartSubscribe()
+        {
+            TaskPopup();
+        }
+
+        private void TaskPopup()
+        {
+            // CustomPopupView
+            var winManager = new WindowManager();
+            var result = winManager.ShowDialogAsync(new CustomPopupViewModel("New Broker"));
+
+            if (result.Result == true)
+            {
+                ActivateItemAsync(new DataBaseViewModel()); // 화면전환
+            }
+        }
+
+        public void PopInfoView()
+        {
+            var winManager = new WindowManager();
+            var result = winManager.ShowDialogAsync(new CustomInfoViewModel("About"));
         }
     }
 }

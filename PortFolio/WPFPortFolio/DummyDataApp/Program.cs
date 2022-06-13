@@ -87,7 +87,7 @@ namespace DummyDataApp
                 CurrValue = JsonConvert.SerializeObject(tempValue, Formatting.Indented);
                 Client.Publish("home/device/fakedata/", Encoding.Default.GetBytes(CurrValue));
                 Console.WriteLine($"Published fakedata : { CurrValue}");
-                Thread.Sleep(3000);
+                Thread.Sleep(1500);
             }
         }
     }
